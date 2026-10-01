@@ -20,7 +20,7 @@ export default function AccountingList({
     <div className="accounting-list">
       {records.map((record) => (
         <div key={record.id} className="accounting-item">
-          <span className="record-amount">
+          <span className={`record-amount ${record.type === "expense" ? "expense" : "income"}`}>
             {record.type === "expense"
               ? -record.amount
               : record.amount}

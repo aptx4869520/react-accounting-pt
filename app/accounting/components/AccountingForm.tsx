@@ -41,7 +41,7 @@ export default function AccountingForm({onAddRecord}: AccountingFormProps) {
       <input type="text" placeholder="說明" value={description} onChange={(e) => setDescription(e.target.value)}/>
       
       <button onClick={handleAddRecord}>
-        新增
+        新增紀錄
       </button>
     </div>
   );
