@@ -12,15 +12,125 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.accounting-page {
+  width: min(800px, calc(100% - 32px));
+  margin: 80px auto;
+}
+
+.accounting-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.accounting-form select,
+.accounting-form input,
+.accounting-form button {
+  height: 40px;
+  padding: 0 12px;
+  font-size: 16px;
+}
+
+.accounting-form select {
+  width: 120px;
+}
+
+.accounting-form input[type="number"] {
+  width: 140px;
+}
+
+.accounting-form input[type="text"] {
+  flex: 1;
+}
+
+.accounting-list {
+  margin-top: 20px;
+}
+
+.accounting-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.record-amount {
+  width: 120px;
+} 
+
+.record-description {
+  flex: 1;
+}
+
+.delete-button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.accounting-total {
+  margin-top: 24px;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-hero {
+  text-align: center;
+}
+
+.home-hero h1 {
+  margin-bottom: 24px;
+  font-size: 32px;
+}
+
+.home-hero p {
+  margin-bottom: 32px;
+  font-size: 18px;
+}
+
+.start-link {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.back-link {
+  display: block;
+  width: fit-content;
+  margin: 32px auto 0;
+  padding: 10px 16px;
+  border: 1px solid currentColor;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+@media (max-width: 600px) {
+  .accounting-form {
+    flex-direction: column;
+  }
+
+  .accounting-form select,
+  .accounting-form input[type="number"],
+  .accounting-form input[type="text"],
+  .accounting-form button {
+    width: 100%;
+  }
 }
