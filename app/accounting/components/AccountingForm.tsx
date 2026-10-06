@@ -8,7 +8,7 @@ type AccountingFormProps = {
 };
 
 export default function AccountingForm({onAddRecord}: AccountingFormProps) {
-  const [type, setType] = useState("income");  
+  const [type, setType] = useState<"income" | "expense">("income"); 
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
 
@@ -32,7 +32,7 @@ export default function AccountingForm({onAddRecord}: AccountingFormProps) {
     
   return (
     <div className="accounting-form">
-      <select value={type} onChange={(e) => setType(e.target.value)}>
+      <select value={type} onChange={(e) => setType(e.target.value as "income" | "expense")}>
         <option value="income">收入</option>
         <option value="expense">支出</option>
       </select>

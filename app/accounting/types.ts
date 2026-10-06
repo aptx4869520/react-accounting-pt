@@ -1,6 +1,7 @@
 export type Record = {
   id: number;
-  type: string;
+  type: "income" | "expense";
   amount: number;
   description: string;
+  firestoreId?: string;
 };

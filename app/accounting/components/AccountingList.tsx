@@ -2,7 +2,7 @@ import type { Record } from "../types";
 
 type AccountingListProps = {
   records: Record[];
-  onDeleteRecord: (id: number) => void;
+  onDeleteRecord: (firestoreId: string) => void;
 };
 
 export default function AccountingList({
@@ -19,7 +19,7 @@ export default function AccountingList({
   return (
     <div className="accounting-list">
       {records.map((record) => (
-        <div key={record.id} className="accounting-item">
+        <div key={record.firestoreId ?? record.id} className="accounting-item">
           <span className={`record-amount ${record.type === "expense" ? "expense" : "income"}`}>
             {record.type === "expense"
               ? -record.amount
@@ -28,7 +28,11 @@ export default function AccountingList({
 
           <span className="record-description">{record.description}</span>
 
-          <button className="delete-button" onClick={() => onDeleteRecord(record.id)}>
+          <button className="delete-button" onClick={() =>{
+              if (record.firestoreId) {
+                onDeleteRecord(record.firestoreId);
+              }
+          }}>
             刪除
           </button>
         </div>
